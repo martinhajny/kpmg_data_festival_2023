@@ -1,0 +1,7 @@
+openai
+langchain
+pymysql
+cryptography
+sqlalchemy
+python-dotenv
+sqlparse
