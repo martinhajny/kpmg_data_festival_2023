@@ -27,9 +27,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         db_username = os.environ.get('DB_USERNAME')         # create table permission only
         db_password = os.environ.get('DB_PASSWORD')
 
+    path_to_sql = Path(__file__).parent.resolve() / SQL_SCRIPT_FILENAME
+
     # Check if file with SQL script exists
-    if Path(Path(__file__).parent.resolve() / SQL_SCRIPT_FILENAME).exists():
-        with Path(SQL_SCRIPT_FILENAME).open(mode='r') as f:
+    if path_to_sql.exists():
+        with path_to_sql.open(mode='r') as f:
             query = f.read()
     else:
         message = f'Could not find file with SQL script ({SQL_SCRIPT_FILENAME}). ' \
