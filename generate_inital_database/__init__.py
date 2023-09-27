@@ -7,7 +7,7 @@ from pathlib import Path
 from sqlalchemy import create_engine, text
 
 
-SQL_SCRIPT_FILE = 'query.sql'
+SQL_SCRIPT_FILE = '../generate_db.sql'
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
