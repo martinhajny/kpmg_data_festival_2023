@@ -7,7 +7,7 @@ from pathlib import Path
 from sqlalchemy import create_engine, text
 
 
-SQL_SCRIPT_FILE = '../generate_db.sql'
+SQL_SCRIPT_FILENAME = 'generate_db.sql'
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -28,11 +28,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         db_password = os.environ.get('DB_PASSWORD')
 
     # Check if file with SQL script exists
-    if Path(SQL_SCRIPT_FILE).exists():
-        with Path(SQL_SCRIPT_FILE).open(mode='r') as f:
+    if Path(Path(__file__).parent.resolve() / SQL_SCRIPT_FILENAME).exists():
+        with Path(SQL_SCRIPT_FILENAME).open(mode='r') as f:
             query = f.read()
     else:
-        message = f'Could not find file with SQL script ({SQL_SCRIPT_FILE}). Please add it to the folder with current function'
+        message = f'Could not find file with SQL script ({SQL_SCRIPT_FILENAME}). ' \
+                  f'Please add it to the folder with current function'
         logging.error(message)
 
         return func.HttpResponse(
