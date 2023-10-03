@@ -32,6 +32,7 @@ app.post("/api", (req, res) => {
     
 })
 
-app.listen(3030, () => {
-    console.log("check out the magic at: http://localhost:3030")
+var port = process.env.PORT || 1337;
+app.listen(port, () => {
+    console.log("check out the magic at: http://localhost:" + port)
 })
