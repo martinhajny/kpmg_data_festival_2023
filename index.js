@@ -25,7 +25,19 @@ app.get("/", (request, response) => {
 // our API
 
 // POST - /api
-app.post("/api", (req, res) => {
+app.post("/api/generate_database", (req, res) => {
+    axios.post(GENERATE_DB_API_ENDPOINT)
+      .then(function (response) {
+        console.log(response.data);
+        res.send(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+})
+
+app.post("/api/query_database", (req, res) => {
     console.log(req.body.question)
 
     const params = {
