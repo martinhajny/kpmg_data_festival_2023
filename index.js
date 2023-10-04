@@ -7,7 +7,7 @@ const app = express();
 
 // API constants
 const BASE_API_URL = process.env.BASE_API_URL
-const GENERATE_DB_API_ENDPOINT = BASE_API_URL + '/generate_initial_database'
+const GENERATE_DB_API_ENDPOINT = BASE_API_URL + '/generate_database'
 const QUERY_DB_API_ENDPOINT = BASE_API_URL + '/query_database'
 
 // Send files from the public directory
