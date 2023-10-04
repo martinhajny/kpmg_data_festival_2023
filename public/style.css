@@ -31,6 +31,18 @@ h1 {
   color: #000;
 }
 
+.manageButton {
+  width: 160px;
+  height: 30px;
+  border: 1px solid #FEE600;
+  background: #FEE600;
+  text-align: center;
+  color: #000;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 .searchButton {
   width: 80px;
   height: 70px;
@@ -43,7 +55,15 @@ h1 {
   font-size: 25px;
 }
 
-.wrap{
+.wrap-manage{
+  width: 60%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrap-search{
   width: 60%;
   position: absolute;
   top: 30%;
@@ -65,7 +85,7 @@ h1 {
   position: absolute;
   left: 50%;
   margin-left: -100px;
-  top: 50%;
+  top: 65%;
   margin-top: -100px;
 }
 
