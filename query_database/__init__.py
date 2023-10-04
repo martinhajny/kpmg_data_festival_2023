@@ -1,3 +1,4 @@
+import json
 import os
 import logging
 import azure.functions as func
@@ -116,16 +117,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # Only select statements are allowed to ebe executed
     if not query.startswith('SELECT'):
         logging.warning('Not an SQL SELECT statement')
-        response = query
+        message = 'Not an SQL SELECT statement'
     else:
         try:
-            response = db.run(query)
-            logging.info(f'Query results: {response}')
+            message = db.run(query)
+            logging.info(f'Query results: {message}')
         except Exception as e:
-            response = f'Query "{query}" can not be executed'
+            message = f'Query can not be executed'
             logging.error(f'Error while executing query: {e}')
 
     return func.HttpResponse(
-        response,
+        json.dumps({'query': query, 'answer': message}),
         status_code=200
     )
