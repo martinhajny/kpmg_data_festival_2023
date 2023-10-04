@@ -1,8 +1,14 @@
+require('dotenv').config()
+
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-require('dotenv').config()
 const app = express();
+
+// API constants
+const BASE_API_URL = process.env.BASE_API_URL
+const GENERATE_DB_API_ENDPOINT = BASE_API_URL + '/generate_initial_database'
+const QUERY_DB_API_ENDPOINT = BASE_API_URL + '/query_database'
 
 // Send files from the public directory
 app.use(express.static( path.resolve(__dirname, 'public') ));
@@ -21,7 +27,12 @@ app.get("/", (request, response) => {
 // POST - /api
 app.post("/api", (req, res) => {
     console.log(req.body.question)
-    axios.post(process.env.FUNCTIONAPP_URL + req.body.question)
+
+    const params = {
+        question: req.body.question
+    };
+
+    axios.post(QUERY_DB_API_ENDPOINT, params)
       .then(function (response) {
         console.log(response.data);
         res.send(response.data);
