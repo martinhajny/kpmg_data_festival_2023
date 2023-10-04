@@ -5,6 +5,10 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .search {
   width: 100%;
   position: relative;
@@ -13,13 +17,14 @@ body{
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #FEE600;
+  border: 5px solid #FEE600;
   border-right: none;
   padding: 5px;
-  height: 20px;
+  height: 50px;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9DBFAF;
+  font-size: 18px;
 }
 
 .searchTerm:focus{
@@ -27,19 +32,19 @@ body{
 }
 
 .searchButton {
-  width: 40px;
-  height: 36px;
+  width: 80px;
+  height: 70px;
   border: 1px solid #FEE600;
   background: #FEE600;
   text-align: center;
   color: #000;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .wrap{
-  width: 30%;
+  width: 60%;
   position: absolute;
   top: 30%;
   left: 50%;
