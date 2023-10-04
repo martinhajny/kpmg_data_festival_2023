@@ -24,8 +24,8 @@ $('.searchTerm').on('keyup', function (e) {
 
 function sendAjaxGenerateDB() {
     $('.socket').show();
-    $('.wrap-response h3').html("")
-    $('.wrap-response p').html("")
+    $('.wrap-response h3').eq(0).html("")
+    $('.wrap-response p').eq(0).html("")
     $.ajax({
         method: "POST",
         url: "/api/generate_database",
@@ -33,8 +33,8 @@ function sendAjaxGenerateDB() {
     .done(function( msg ) {
         console.log(msg)
         $('.socket').hide();
-        $('.wrap-response h3').html("Výsledek operace:")
-        $('.wrap-response p').html(msg)
+        $('.wrap-response h3').eq(0).html("Výsledek operace:")
+        $('.wrap-response p').eq(0).html(msg)
     });
 }
 
