@@ -49,7 +49,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.error(message)
 
         return func.HttpResponse(
-            message,
+            json.dumps({'query': '', 'answer': message}),
             status_code=400
         )
     else:
@@ -66,9 +66,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             logging.info('Successfully connected to the DB')
     except Exception as e:
         logging.error(f'Error while connecting to the DB: {e}')
-
+        message = 'Error while connecting to the DB. Please check provided credentials.'
         return func.HttpResponse(
-            'Error while connecting to the DB. Please check provided credentials.',
+            json.dumps({'query': '', 'answer': message}),
             status_code=400
         )
 
@@ -83,8 +83,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             question = req_body.get('question')
 
     if not question:
+        message = 'Please pass your question as a text'
         return func.HttpResponse(
-            'Please pass your question as a text',
+            json.dumps({'query': '', 'answer': message}),
             status_code=400
         )
 
