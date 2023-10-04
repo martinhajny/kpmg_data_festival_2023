@@ -26,6 +26,8 @@ function sendAjaxGenerateDB() {
     $('.socket').show();
     $('.wrap-response h3').eq(0).html("")
     $('.wrap-response p').eq(0).html("")
+    $('.wrap-response h3').eq(1).html("")
+    $('.wrap-response p').eq(1).html("")
     $.ajax({
         method: "POST",
         url: "/api/generate_database",
