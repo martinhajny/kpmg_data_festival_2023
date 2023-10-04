@@ -2,10 +2,16 @@ $( document ).ready(function() {
     $('.socket').hide();
 });
 
+// Trigger endpoint on enter key pressure
 $('.searchTerm').on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
         sendAjax();
     }
+});
+
+// Trigger endpoint on button click
+$(document).on('click','.searchButton', function() {
+    sendAjax();
 });
 
 function sendAjax() {
